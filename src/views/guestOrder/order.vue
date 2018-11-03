@@ -1,11 +1,15 @@
 <template>
-  <p>index</p>
+  <div>order</div>
 </template>
 
 <script>
-    export default {
-        name: "index"
+export default {
+  data(){
+    return {
+
     }
+  }
+}
 </script>
 
 <style scoped>

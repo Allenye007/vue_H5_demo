@@ -1,7 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from '@/views/login'
-import index from '@/views/index'
+import Login from '@/views/login'
+import Index from '@/views/myHome/index'
+
+
+import Order from '@/views/guestOrder/order'
+import Analysis from '@/views/myAnalysis/analysis'
+import Guest from '@/views/myGuest/guest'
+import Income from '@/views/myIncome/income'
 
 Vue.use(Router);
 
@@ -14,12 +20,32 @@ export default new Router({
     {
       path:'/login',
       name:'login',
-      component:login
+      component:Login
     },
     {
       path:'/index',
       name:'index',
-      component:index
+      component:Index,
+    },
+    {
+      path:'/order',
+      name:'order',
+      component:Order
+    },
+    {
+      path:'/analysis',
+      name:'analysis',
+      component:Analysis
+    },
+    {
+      path:'/guest',
+      name:'guest',
+      component:Guest
+    },
+    {
+      path:'/income',
+      name:'income',
+      component:Income
     }
   ]
 })

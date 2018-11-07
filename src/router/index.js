@@ -1,13 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/views/login'
-import Index from '@/views/myHome/index'  // 主页
 
-import Order from '@/views/guestOrder/order'  //客户订单
-import Analysis from '@/views/myAnalysis/analysis'  // 数据分析
-import Guest from '@/views/myGuest/guest'  // 我的客户
-import Income from '@/views/myIncome/income'  // 我的收益
-import Shop from '@/views/myHome/myShop/index'  // 我的小店
+import Login from '@/views/login'//登录
+import Index from '@/views/myHome/index'//真选店主和大众用户
+import Analysis from '@/views/myAnalysis/analysis'//数据分析
+import Guest from '@/views/myGuest/guest'//我的客户
+import Income from '@/views/myIncome/income'//实时收益
+
+import CustomerOrder from '@/views/myHome/CustomerOrder/CustomerOrder'//客户订单
+import CustomerEvaluate from '@/views/myHome/CustomerOrder/CustomerEvaluate'//待评价
+import ShopIndex from '@/views/myHome/myShop/index'//我的小店
+import editShop from '@/views/myHome/myShop/editShop/editShop'//编辑我的小店
 
 import GoodsList from '@/views/myHome/myShop/editShop/goodsList'  // 商品列表
 import QrCode from '@/views/myHome/myShop/editShop/qrCode'  // 二维码
@@ -32,11 +35,6 @@ export default new Router({
       component:Index,
     },
     {
-      path:'/order',
-      name:'order',
-      component:Order
-    },
-    {
       path:'/analysis',
       name:'analysis',
       component:Analysis
@@ -50,11 +48,6 @@ export default new Router({
       path:'/income',
       name:'income',
       component:Income
-    },
-    {
-      path:'/shop',
-      name:'shop',
-      component:Shop
     },
     {
       path:'/goodsList',
@@ -71,5 +64,22 @@ export default new Router({
       name:'shopName',
       component:ShopName
     },
+    {
+      path:'/CustomerOrder',
+      name:'CustomerOrder',
+      component:CustomerOrder
+    },{
+      path:'/CustomerEvaluate',
+      name:'CustomerEvaluate',
+      component:CustomerEvaluate
+    },{
+      path:'/ShopIndex',
+      name:'ShopIndex',
+      component:ShopIndex
+    },{
+      path:'/editShop',
+      name:'editShop',
+      component:editShop
+    }
   ]
 })

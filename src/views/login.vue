@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p @click="go" class="p1">登录</p>
+    <p @touchstart="go" class="p1">登录</p>
   </div>
 </template>
 

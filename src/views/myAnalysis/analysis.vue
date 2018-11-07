@@ -2,7 +2,7 @@
   <div class="container">
     <div class="head">
       <div class="back">
-        <img class="backImg" src="https://img2.cdn.jinshilife.cn/nav_pd.png" alt="">
+        <img class="backImg" @click="goBack" src="https://img2.cdn.jinshilife.cn/nav_pd.png" alt="">
         <h2>数据分析</h2>
       </div>
       <h1>15646546</h1>
@@ -310,6 +310,10 @@ export default {
     activeMonth() {
       this.tabDay = false;
       this.tabMonth = true;
+    },
+    // 返回
+    goBack() {
+      this.$router.back(-1);
     }
   }
 }

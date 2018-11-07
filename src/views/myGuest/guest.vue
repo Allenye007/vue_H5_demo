@@ -2,7 +2,7 @@
   <section class="container">
     <div class="head">
       <div class="headInner">
-        <div class="backIcon"><img class="backIconImg"  src="https://img0.cdn.jinshilife.cn/nav_pd.png" alt=""></div>
+        <div class="backIcon"><img class="backIconImg" @touchstart="goBack"  src="https://img0.cdn.jinshilife.cn/nav_pd.png" alt=""></div>
         <div><h2>我的客户</h2></div>
       </div>
     </div>
@@ -178,6 +178,10 @@ export default {
     activeR () {
       this.tabActiveL = false;
       this.tabActiveR = true;
+    },
+    // 返回
+    goBack() {
+      this.$router.back(-1);
     }
   }
 

@@ -21,8 +21,8 @@
       </div>
     </div>
     <div class="header2">
-      <p class="hid">美食俱乐部<img src="../../../../../static/images/编辑-铅笔.png" alt=""></p>
-      <p class="hid" style="margin-top: 0.06rem;">欢迎大家来到我的店铺，快来看看吧!<img src="../../../../../static/images/编辑-铅笔.png" alt=""></p>
+      <p class="hid" @touchstart="goShopName">美食俱乐部<img src="../../../../../static/images/编辑-铅笔.png" alt=""></p>
+      <p class="hid" @touchstart="goShopNotice" style="margin-top: 0.06rem;">欢迎大家来到我的店铺，快来看看吧!<img src="../../../../../static/images/编辑-铅笔.png" alt=""></p>
     </div>
     <div class="nav">
       <span>联系店主</span>
@@ -30,17 +30,17 @@
     </div>
     <div class="bottom">
       <ul>
-        <li>
+        <li @touchstart="goShopNumber">
           <span>店主微信</span>
           <p class="hid" style="margin-left: 0.3rem;">liangzhengwei035400</p>
           <img src="../../../../../static/images/个人中心入口.png" alt="">
         </li>
-        <li>
+        <li @touchstart="goQRCode">
           <span>群组二维码</span>
           <p class="hid">可上传多张(多个群)</p>
           <img src="../../../../../static/images/个人中心入口.png" alt="">
         </li>
-        <li>
+        <li @touchstart="goGoodsList">
           <span>管理店铺推荐的商品</span>
           <img src="../../../../../static/images/个人中心入口.png" alt="">
         </li>
@@ -59,8 +59,45 @@
           }
       },
       methods:{
-        goBack(){//返回上一级
+        //返回上一级
+        goBack(){
           this.$router.back(-1);
+        },
+        // 跳转商品列表
+        goGoodsList() {
+          this.$router.push({name: 'goodsList'});
+        },
+        // 跳转二维码
+        goQRCode() {
+          this.$router.push({name: 'qrCode'});
+        },
+        // 三个页面
+        // 去店铺名称
+        goShopName() {
+          this.$router.push({
+            name: 'shopName',
+            params: {
+                key: 'showShopName',
+            }
+            },);
+        },
+        // 去公告
+        goShopNotice() {
+          this.$router.push({
+            name: 'shopName',
+            params: {
+                key: 'showNotice',
+            }
+            },);
+        },
+        // 去微信号
+        goShopNumber() {
+          this.$router.push({
+            name: 'shopName',
+            params: {
+                key: 'showNumber',
+            }
+            },);
         },
         handleAvatarSuccess(res, file) {
           this.imageUrl = URL.createObjectURL(file.raw);

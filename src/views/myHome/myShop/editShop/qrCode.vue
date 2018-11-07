@@ -3,7 +3,7 @@
     <div class="head">
 
       <div class="back">
-        <img class="backImg" src="https://img2.cdn.jinshilife.cn/nav_pd.png" alt="">
+        <img class="backImg" @touchstart="goBack" src="https://img2.cdn.jinshilife.cn/nav_pd.png" alt="">
       </div>
 
       <div class="title">
@@ -357,6 +357,10 @@ export default {
     }
   },
   methods: {
+    // 返回
+    goBack() {
+      this.$router.back(-1);
+    },
     // 激活展示
     activeShow() {
       this.tabShow = true;
@@ -369,7 +373,6 @@ export default {
       } else {
         this.showUrl = this.lists[0].url
       }
-
     },
     // 激活全部
     activeAll() {

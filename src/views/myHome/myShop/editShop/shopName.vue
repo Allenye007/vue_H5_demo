@@ -2,7 +2,7 @@
   <section class="container">
     <div class="head">
       <div class="headInner">
-        <div class="backIcon"><img class="backIconImg"  src="https://img0.cdn.jinshilife.cn/nav_pd.png" alt=""></div>
+        <div class="backIcon"><img class="backIconImg" @touchstart="goBack"  src="https://img0.cdn.jinshilife.cn/nav_pd.png" alt=""></div>
         <div v-if="this.showShopName"><h2>店铺名称</h2></div>
         <div v-if="this.showNumber"><h2>微信号</h2></div>
         <div v-if="this.showNotice"><h2>店铺公告</h2></div>
@@ -24,7 +24,7 @@
 export default {
   data(){
     return {
-      showShopName: true,
+      showShopName: '',
       showNumber: '',
       showNotice: '',
     }
@@ -33,20 +33,28 @@ export default {
     this.getParams();
   },
   methods: {
+    // 返回
+    goBack() {
+      this.$router.back(-1);
+    },
     getParams() {
       // 取到路由带过来的参数
       let key = this.$route.params.key
+      console.log(key);
       // 将数据放在当前组件的数据内
       // 显示店铺名称
       if(key === 'showShopName') {
+        console.log(key,1);
         this.showShopName = true;
         this.showNumber = false;
         this.showNotice = false;
       } else if(key === 'showNumber') {
+        console.log(key,2);
         this.showShopName = false;
         this.showNumber = true;
         this.showNotice = false;
       } else if(key === 'showNotice') {
+        console.log(key,3);
         this.showShopName = false;
         this.showNumber = false;
         this.showNotice = true;

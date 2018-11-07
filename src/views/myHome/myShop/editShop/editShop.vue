@@ -91,6 +91,7 @@
             },);
         },
         // 去微信号
+
         goShopNumber() {
           this.$router.push({
             name: 'shopName',

@@ -3,7 +3,12 @@
 > A Vue.js project
 
 ## Build Setup
-
+echo "# vue_H5_demo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Allenye007/vue_H5_demo.git
+git push -u origin master
 ``` bash
 # install dependencies
 npm install

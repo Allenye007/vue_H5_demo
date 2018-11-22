@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.333333vw;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://xxm.zhenxuan.mobi/base.css">
+  <title>上下轮播</title>
+</head>
+<style>
+
+  html,body {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .box {
+    position: relative;
+    height: 3rem;
+    width: 7.5rem;
+    background-color: #ccc;
+    margin-top: 50px;
+    overflow: hidden;
+  }
+
+  .active {
+    animation:mymove 200s linear infinite;
+  }
+
+  @keyframes mymove{
+      1% {top:0px;}
+      100%{top:-2000px;}
+  }
+
+  ul {
+    width: 7.5rem;
+    position: absolute;
+    background-color: yellow;
+    top: 0rem;
+    text-align: center;
+  }
+
+  li {
+    font-size: 0.14rem;
+    display: block;
+  }
+
+</style>
+<body>
+    <div class="box">
+        <ul>
+        </ul>
+    </div>
+</body>
+<script>
+
+
+  var ul = document.querySelector('ul');
+  for(var i = 0; i < 200; i++) {
+    var n1 = Math.floor(Math.random() * (9 - 0 + 1) + 0)
+    var n2 = Math.floor(Math.random() * (9 - 0 + 1) + 0)
+    var n3 = Math.floor(Math.random() * (9 - 0 + 1) + 0)
+    var n4 = Math.floor(Math.random() * (9 - 0 + 1) + 0)
+    var li = document.createElement('li')
+    li.innerText = `恭喜手机尾号${n1}${n2}${n3}${n4}的用户获得${n3}元`;
+    ul.appendChild(li);
+  }
+  ul.className = 'active'
+
+  // function GetRandom(min, max) {
+  //     var n = Math.floor(Math.random() * (max - min + 1) + min);
+  //     return n;
+  // };
+</script>
+</html>

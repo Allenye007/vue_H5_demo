@@ -1,9 +1,9 @@
 <template>
   <div class="box">
     <div class="container">
-      <!-- <img src="https://image1.ljcdn.com/hdic-resblock/1768a71f-19d7-41f1-8e74-1a03d4c8d031.jpg.592x432.jpg" alt=""> -->
+      <!-- <img src="http://taobao.90sheji.com/58pic/15/44/31/54C58PICxYd.png" alt=""> -->
       <ul>
-        <li v-for="list in lists" :key="list.id" class="">
+        <li v-for="list in lists" :key="list.id" class="" @click="goGoodsDetail(list.id)">
           <a :href=list.href class="imgBox">
             <img :src=list.imgSrc alt="" class="imgL">
           </a>
@@ -64,6 +64,7 @@ export default {
     }
   },
   mounted() {
+    console.log('zhuye')
     let that = this;
     this.getList();
     window.onscroll = function() {
@@ -163,7 +164,17 @@ export default {
             this.lists = this.lists.concat(res.data.msg.rows);
             this.allCount = res.data.msg.count;
           }
+      },
+      // 跳转商品详情  携带ID
+      goGoodsDetail(id) {
+        this.$router.push({
+          name: 'goodsDetail',
+          params: {
+            id: id
+          }
+        })
       }
+
   },
 
 

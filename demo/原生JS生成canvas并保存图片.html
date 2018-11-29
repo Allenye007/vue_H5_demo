@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原生JS生成canvas</title>
+  <!-- static -->
+  <link rel="stylesheet" href="https://xxm.zhenxuan.mobi/base.css">
+  <script src="../static//js/html2canvas.js"></script>
+  <script src="../static/js/canvas2image.js"></script>
+</head>
+<style>
+  body {
+    overflow: hidden;
+  }
+  img {
+    width: 300px;
+    /* height: 300px; */
+  }
+  #canvas {
+    margin-left: 10.13%;
+    /* background-color: #ffffff; */
+    margin-top: 100px;
+  }
+  .box {
+    height: 1000px;
+    width: 100%;
+    background: rgba(153, 153, 153, 0.3);
+  }
+</style>
+<body>
+  <div class="box">
+      <canvas id="canvas" width="300" height="480">
+      </canvas>
+      <img id="img" src="" alt="">
+      <!-- <div id="toCanvas">转成canvas</div> -->
+      <div id="toPic">保存图片</div>
+  </div>
+
+  <script>
+
+    var toCanvas = document.getElementById('toCanvas');
+    var toPic = document.getElementById('toPic');
+    var canvas = document.getElementById('canvas');
+    var img = document.getElementById('img');
+
+
+    let W = window.screen.width;
+    let H = window.screen.height;
+
+
+    function draw() {
+      var ctx = canvas.getContext('2d');
+
+      console.log(W, H)
+      var imgBg = new Image();
+      imgBg.setAttribute("crossOrigin",'Anonymous')
+      imgBg.src = 'https://img0.cdn.jinshilife.cn/pic15345034971116skeo19ggia.jpg';
+
+
+      var img11 = new Image();
+      img11.setAttribute("crossOrigin",'Anonymous')
+      img11.src = '../static/images/avatar.jpg';
+
+
+      var img12 = new Image();
+      img12.setAttribute("crossOrigin",'Anonymous')
+      img12.src = 'https://img0.cdn.jinshilife.cn/pic15345034971116skeo19ggia.jpg';
+
+
+      window.onload = function(){
+          ctx.fillStyle="#fff";
+          ctx.fillRect(0,0,300,480);
+          ctx.drawImage(imgBg, 0.06*W, 0.045*H, 0.68*W, 0.415*H);  // main
+          ctx.drawImage(img12, 0.575*W, 385, 60, 60); // qr
+          circleImg(ctx, img11, 0.06*W, 390, 30); // ava
+          ctx.fillStyle = "rgba( 0, 0, 0, .8)";
+          ctx.font="12px Arial";
+          ctx.fillText("我是梁朝伟",0.23*W, 408);
+          ctx.fillText("推荐你一个不错的商品",0.23*W, 425);
+          ctx.fillText("快打开看看吧",0.23*W, 443);
+          ctx.font="10px Arial";
+          ctx.fillStyle = "red";
+          ctx.fillText("长按二维码抢购",0.56  *W, 453);
+      }
+    }
+
+
+    draw()
+
+
+    function circleImg(ctx, img, x, y, r) {
+      ctx.save();
+      var d =2 * r;
+      var cx = x + r;
+      var cy = y + r;
+      ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+      ctx.clip();
+      ctx.drawImage(img, x, y, d, d);
+      ctx.restore();
+    }
+
+    toPic.onclick = function() {
+      downLoadImage1(canvas, '1.png')
+    }
+
+    function downLoadImage1(canvas,name) {
+        var a = document.createElement("a");
+        a.href = canvas.toDataURL();
+        a.download = name;
+        a.click();
+    }
+    // canvas：传入canvas的dom对象
+    // name：保存的图片的名字
+    function downLoadImage2(img,name) {
+        var a = document.createElement("a");
+        a.href = img.src;
+        a.download = name;
+        a.click();
+    }
+    // img：图片的dom对象
+    // name：保存为图片时的名字
+
+
+
+
+    function base64Img2Blob(code){
+      var parts = code.split(';base64,');
+      var contentType = parts[0].split(':')[1];
+      var raw = window.atob(parts[1]);
+      var rawLength = raw.length;
+      var uInt8Array = new Uint8Array(rawLength);
+      for (var i = 0; i < rawLength; ++i) {
+        uInt8Array[i] = raw.charCodeAt(i);
+      }
+      return new Blob([uInt8Array], {type: contentType});
+    }
+
+    function downloadFile(fileName, content){
+      var aLink = document.createElement('a');
+      var blob = base64Img2Blob(content); //new Blob([content]);
+      var evt = document.createEvent("HTMLEvents");
+      evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错
+      aLink.download = fileName;
+      aLink.href = URL.createObjectURL(blob);
+      aLink.dispatchEvent(evt);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+handelShowShare() {
+
+  var bg = document.getElementById('bg');
+  // var W = window.screen.width;
+  // var H = window.screen.height;
+
+  bg.style.display = 'block';
+
+  // var canvas = document.createElement('canvas')
+
+  // canvas.width = 0.8*W;
+  // canvas.height = 0.6*H;
+
+
+  // function draw() {
+  //   var ctx = canvas.getContext('2d');
+  //   window.onload = function () {
+  //      ctx.fillStyle="#fff";
+  //      ctx.fillRect(0,0,300,480);
+  //   }
+  //   // var img1 = new Image();
+  //   // img1.setAttribute("crossOrigin",'Anonymous');
+  //   // img1.src = 'https://img0.cdn.jinshilife.cn/pic15345034971116skeo19ggia.jpg'
+
+  //   // var img2 = new Image();
+  //   // img2.setAttribute("crossOrigin",'Anonymous');
+  //   // img2.src = 'https://img0.cdn.jinshilife.cn/pic15345034971116skeo19ggia.jpg'
+
+  // }
+  // draw()
+
+  // bg.appendChild(canvas);
+
+},

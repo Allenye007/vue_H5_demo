@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>生成二维码</title>
+  <link rel="stylesheet" href="https://xxm.zhenxuan.mobi/base.css">
+  <!-- 生成二维码库 -->
+  <script src="../static/js/qrcode.min.js"></script>
+</head>
+<style>
+  #inp {
+    margin-bottom: 30px;
+    display: block;
+    border: 1px solid #000;
+    margin: 50px 50px;
+    margin-top: 0;
+  }
+  div {
+    /* border: 1px solid red; */
+    display: inline-block;
+    outline: none;
+  }
+  #qrcode {
+    margin: 0px auto;
+    margin-left: 50px;
+  }
+</style>
+<body>
+  <p>把你说的话输入下面，就会生成二维码！</p>
+  <input type="text" name="" id="inp" value="我最帅">
+  <div id="qrcode"></div>
+  <script type="text/javascript">
+
+    var inp = document.querySelector("#inp");
+    var QRcode = document.querySelector("#qrcode");
+    console.log(inp.value)
+    // 二维码实例
+    var qrcode = new QRCode(QRcode, {
+      width : 100,
+      height : 100,
+    });
+
+    function madeCode(v) {
+      if(inp.value === null) {
+        return
+      }
+      qrcode.makeCode(v);
+    }
+    madeCode(inp.value);
+
+    inp.onblur = function() {
+      madeCode(inp.value);
+    }
+
+    // some options
+    // var qrcode = new QRCode("test", {
+    //     text: "http://jindo.dev.naver.com/collie",
+    //     width: 128,
+    //     height: 128,
+    //     colorDark : "#000000",
+    //     colorLight : "#ffffff",
+    //     correctLevel : QRCode.CorrectLevel.H
+    // });
+
+    // some methods
+    // qrcode.clear(); // clear the code.
+    // qrcode.makeCode("http://naver.com"); // make another code.
+
+  </script>
+</body>
+</html>
+
+

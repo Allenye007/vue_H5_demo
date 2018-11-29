@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.333333vw;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="标题">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="stylesheet" href="https://xxm.zhenxuan.mobi/base.css">
+  <script src="https://xxm.zhenxuan.mobi/js/clipboard.js"></script>
+  <title>123456</title>
+  <style>
+    .wechatImg {
+      width: 1.16rem;
+      height: 1.42rem;
+      position: fixed;
+      right: 0.2rem;
+      top: 6rem;
+      z-index: 999;
+    }
+
+    .mask {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.40);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      display: none;
+    }
+
+    .mask .maskInner {
+      width: 6.5rem;
+      height: 5rem;
+      background: #FFFFFF;
+      box-shadow: 0 0 0.20rem 0 rgba(0, 0, 0, 0.40);
+      border-radius: 0.14rem 0.21rem 0.21rem 0.21rem;
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      z-index: 99999999;
+    }
+
+    .maskInner .closeMask {
+      width: 0.46rem;
+      height: 0.46rem;
+      position: absolute;
+      right: 0.2rem;
+      top: 0.2rem;
+    }
+
+    .maskInner p {
+      width: 100%;
+      height: 0.4rem;
+      line-height: 0.4rem;
+      text-align: center;
+      font-size: 0.28rem;
+      color: #666666;
+    }
+
+    .maskInner .p1 {
+      margin-top: 0.5rem;
+    }
+
+    .maskInner .p2 {
+      margin-top: 0.1rem;
+    }
+
+    .wechat {
+      width: 100%;
+      height: 1rem;
+      margin-top: 0.6rem;
+      text-align: center;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .wechat img {
+      width: 0.48rem;
+      height: 0.48rem;
+      position: absolute;
+      top: 0;
+      left: 3rem;
+    }
+
+    .wechat .wechatNum {
+      width: 100%;
+      height: 0.5rem;
+      line-height: 0.5rem;
+      font-size: 0.36rem;
+      color: #444444;
+      font-weight: bold;
+      margin-top: 0.06rem;
+      text-decoration: underline;
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      font-family: Arial;
+    }
+
+    .maskInner .copyWechatNum {
+      width: 3.6rem;
+      height: 0.8rem;
+      line-height: 0.8rem;
+      text-align: center;
+      font-size: 0.28rem;
+      background: #EA5224;
+      color: #FFFFFF;
+      border-radius: 0.40rem;
+      margin: 0 auto;
+    }
+
+
+    /* mask */
+
+    .boxImg {
+      width: 100%;
+      height: 100%;
+      padding-bottom: 1.52rem;
+    }
+
+    img {
+      width: 7.5rem;
+    }
+
+    footer {
+      overflow: hidden;
+      line-height: 1.52rem;
+      background: #EA5224;
+    }
+
+    .left {
+      float: left;
+      margin-left: 0.12rem;
+      margin-top: -0.08rem;
+    }
+
+    .lImg {
+      height: 1.32rem;
+      width: 0.95rem;
+    }
+
+    .mid {
+      /* width: 3.51rem; */
+      height: 1.52rem;
+      float: left;
+      margin-left: 0.12rem;
+    }
+
+    .mid div:first-of-type {
+      font-family: PingFangSC-Medium;
+      font-size: 0.22rem;
+      color: #FFFFFF;
+      text-align: left;
+      height: 0.3rem;
+      line-height: 0.3rem;
+      margin-top: 0.2rem;
+    }
+
+    .mid .num {
+      width: 1.68rem;
+      height: 0.41rem;
+      line-height: 0.45rem;
+      background: #FFA02C;
+      border-radius: 0.365rem;
+      font-family: PingFangSC-Medium;
+      font-size: 0.22rem;
+      color: #FFFFFF;
+      text-align: left;
+      padding-left: 0.05rem;
+      margin-top: 0.1rem;
+    }
+
+    .num span {
+      display: inline-block;
+      padding-left: 0.08rem;
+    }
+
+    .numImg {
+      float: left;
+      height: 0.34rem;
+      width: 0.34rem;
+      margin-top: 0.03rem;
+      margin-left: 0.02;
+    }
+
+    .detail {
+      font-family: PingFangSC-Medium;
+      font-size: 0.22rem;
+      color: #FFFFFF;
+      text-align: left;
+      height: 0.3rem;
+      line-height: 0.3rem;
+      margin-top: 0.1rem;
+    }
+
+
+
+    .right {
+      float: right;
+      background: #FFA02C;
+      border-radius: 12px;
+      width: 2.06rem;
+      height: 0.8rem;
+      line-height: 0.8rem;
+      font-family: PingFangSC-Medium;
+      font-size: 0.28rem;
+      color: #FFFFFF;
+      text-align: left;
+      margin-top: 0.38rem;
+      margin-right: 0.3rem;
+    }
+
+    .copyImg {
+      float: left;
+      height: 0.42rem;
+      width: 0.42rem;
+      margin-top: 0.2rem;
+      margin-left: 0.2rem;
+      margin-right: 0.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="boxImg">
+    <img src="https://xxm.zhenxuan.mobi/P01.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P02.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P03.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P04.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P05.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P06.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P07.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P08.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P09.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P10.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P11.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P12.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P13.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P14.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P15.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P16.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P17.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P18.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P19.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P20.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P21.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P22.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P23.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P24.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P25.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P26.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P27.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P28.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P29.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P30.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P31.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P32.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P33.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P34.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P35.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P36.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P37.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P38.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P39.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P40.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P41.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P42.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P43.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P44.jpg" alt="">
+    <img src="https://xxm.zhenxuan.mobi/P45.jpg" alt="">
+  </div>
+  <footer style="position: fixed; bottom: 0; left: 0; height: 1.52rem; width: 7.5rem" data-clipboard-target="#wx" onclick="" id="footer">
+    <div class="left">
+      <img class="lImg" src="https://xxm.zhenxuan.mobi/Ptaojie.png" alt="">
+    </div>
+    <div class="mid">
+      <div>安陶董事长陶陶的微信号：</div>
+      <div class="num">
+        <img class="numImg" src="https://xxm.zhenxuan.mobi/Pwx.png" alt="">
+        <span id="wx">18393338</span>
+      </div>
+      <div class="detail">仅限100名额 全程一对一指导创业！</div>
+    </div>
+
+    <div class="right" id="right">
+      <img class="copyImg" src="https://xxm.zhenxuan.mobi/Pwx.png" alt="">
+      <p id="text">点击复制</p>
+    </div>
+  </footer>
+  <!--复制微信蒙版-->
+  <div class="mask" id="mask">
+    <div class="maskInner" id="maskInner">
+      <img src="https://xxm.zhenxuan.mobi/image/closeBG.png" alt="" class="closeMask" id="closeMask">
+      <p class="p1">添加微信号</p>
+      <p class="p2">添加品牌创始人陶陶微信</p>
+      <div class="wechat">
+        <img src="https://xxm.zhenxuan.mobi/image/wxLogo.png" alt="">
+        <p class="wechatNum" id="wechatNum">18393338</p>
+      </div>
+      <div class="copyWechatNum" id="copy" data-clipboard-target="#wechatNum" onclick="">复制</div>
+    </div>
+  </div>
+  <!-- 微信LOGO -->
+  <img src="https://xxm.zhenxuan.mobi/Adverwechat.png" alt="" class="wechatImg" id="wechatImg">
+
+  <script>
+    var footer = document.getElementById('footer');
+    var wx = document.getElementById('wx');
+    var text = document.getElementById('text');
+    var right = document.getElementById('right');
+    //复制2
+    //点击footer复制
+    var clipboard = new Clipboard('#footer');
+    clipboard.on('success', function (e) {
+      right.style.color = 'rgba(225,225,225,.8)';
+      text.innerHTML = '复制成功';
+      e.clearSelection();
+    });
+    clipboard.on('error', function (e) {
+      text.innerHTML = '点击复制';
+      alert('抱歉没有复制成功！')
+    });
+
+    //复制1
+    var Copy = document.getElementById('copy');
+    //有微信图点击复制
+    var clipboard = new Clipboard('#copy');
+    clipboard.on('success', function (e) {
+      Copy.style.background = '#D0D0D0';
+      Copy.innerHTML = '复制成功';
+      e.clearSelection();
+    });
+    clipboard.on('error', function (e) {
+      Copy.style.background = '#EF2318';
+      Copy.innerHTML = '复制';
+    });
+    //蒙层弹框
+    var wechatImg = document.getElementById('wechatImg');
+    var CloseMask = document.getElementById('closeMask');
+    var Mask = document.getElementById('mask');
+    //显示mask
+    wechatImg.onclick = function (e) {
+      e.stopPropagation();
+      Mask.style.display = 'block';
+    };
+    //关闭mask
+    CloseMask.onclick = function (e) {
+      e.stopPropagation();
+      Mask.style.display = 'none';
+    };
+  </script>
+</body>
+
+</html>

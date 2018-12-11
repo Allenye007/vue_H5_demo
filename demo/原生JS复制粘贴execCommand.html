@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="#cardList" class="btn">点击复制进框</div>
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+  <script>
+    function Copy(str) {
+      var save = function (e) {
+        e.clipboardData.setData('text/plain', str);
+        e.preventDefault();
+      }
+      document.addEventListener('copy', save);
+      document.execCommand('copy');
+      document.removeEventListener('copy', save);
+      alert('复制成功！');
+    }
+    var btn = document.getElementById('#cardList')
+
+    btn.onclick = function() {
+      Copy('点击复制进框');
+    }
+  </script>
+</body>
+
+</html>

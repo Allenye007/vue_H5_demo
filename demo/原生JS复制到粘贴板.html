@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>测试用</title>
+</head>
+
+<body>
+  <div style="display:inline-block; vertical-align:top;">
+    <button class="js-copy-bob-btn">复制1</button><br /><br />
+    <button class="js-copy-jane-btn">复制2</button>
+  </div>
+  <div style="display:inline-block;">
+    <textarea class="js-test-textarea" cols="35" rows="4">复制到这里，谢谢！
+
+    </textarea>
+  </div>
+  <script>
+    function fallbackCopyTextToClipboard(text) {
+      var textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    function copyTextToClipboard(text) {
+      if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text);
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function () {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function (err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    }
+
+    var copyBobBtn = document.querySelector('.js-copy-bob-btn'),
+      copyJaneBtn = document.querySelector('.js-copy-jane-btn');
+
+    copyBobBtn.addEventListener('click', function (event) {
+      copyTextToClipboard('allen1');
+    });
+
+
+    copyJaneBtn.addEventListener('click', function (event) {
+      copyTextToClipboard('allen2');
+    });
+
+  </script>
+</body>
+
+</html>

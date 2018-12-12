@@ -5,7 +5,7 @@
       <ul>
         <li v-for="list in lists" :key="list.id" class="" @click="goGoodsDetail(list.id)">
           <a :href=list.href class="imgBox">
-            <img :src=list.imgSrc alt="" class="imgL">
+            <img src='http://pcgkntovx.bkt.clouddn.com/885651011761754909.jpg' alt="" class="imgL">
           </a>
           <h3>{{list.title}} <span>{{list.lab1}}</span><span>{{list.lab1}}</span></h3>
           <div><span>{{list.address1}}</span><span>{{list.address2}}</span><span>{{list.address3}}</span></div>
@@ -15,7 +15,7 @@
         <li class="blank"></li>
       </ul>
     </div>
-    <tabBar></tabBar>
+    <!-- <tabBar></tabBar> -->
   </div>
 
 </template>
@@ -54,7 +54,7 @@
 </style>
 
 <script>
-import { getLianJiaList } from '../api/api';
+import { getLianJiaList } from '../../api/api';
 var i = 0;
 export default {
   data() {

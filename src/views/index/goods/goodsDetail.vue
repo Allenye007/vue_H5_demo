@@ -40,7 +40,7 @@
 
 <style scoped>
 
-@import '../../../node_modules/swiper/dist/css/swiper.min';
+@import '../../../../node_modules/swiper/dist/css/swiper.min';
   .container{
     width: 100%;
     height: 100%;
@@ -104,7 +104,7 @@
 </style>
 
 <script>
-import { getGoodsDetail } from '../../api/api';
+import { getGoodsDetail } from '../../../api/api';
 import Swiper from 'swiper';
 export default {
   data() {

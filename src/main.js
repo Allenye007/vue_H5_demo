@@ -5,6 +5,8 @@ import '../static/css/reset.css'
 
 // 引入组件
 import tabBar from './component/tabBar'
+import pageTittle from './component/pageTittle'; // 页面tittle
+
 //提示
 import {Toast} from 'wc-messagebox'
 import 'wc-messagebox/style.css'
@@ -17,6 +19,7 @@ Vue.use(ElementUI);
 // 注册组件
 // 底部栏
 Vue.component(tabBar.name, tabBar);
+Vue.component(pageTittle.name, pageTittle) // 页面tittle
 
 Vue.config.productionTip = false;
 

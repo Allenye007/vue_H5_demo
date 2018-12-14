@@ -46,7 +46,6 @@ export default {
 
 <style scoped>
 #app {
-  padding-bottom: 0.7rem;
   box-sizing: border-box;
 }
 .NAV {

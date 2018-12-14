@@ -21,7 +21,7 @@
     left: 0;
     margin-top: 0;
     z-index: 9999;
-    border-bottom: 0.03rem solid rgba(153, 153, 153, .2);
+    border-bottom: 0.02rem solid rgba(153, 153, 153, .2);
   }
   .header .backIconImg{
     width: 0.6rem;

@@ -104,7 +104,7 @@
 </style>
 
 <script>
-import { getGoodsDetail } from '../../../api/api';
+// import { getGoodsDetail } from '../../../api/api';
 import Swiper from 'swiper';
 export default {
   data() {

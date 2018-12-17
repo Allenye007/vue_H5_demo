@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bigBox">
     <header>
       <div @click="goSearch" class="search">🔍搜索商品，共有{{this.num}}款商品</div>
       <!-- 轮播图 -->
@@ -99,7 +99,9 @@
 
 <style scoped>
 @import "../../../node_modules/swiper/dist/css/swiper.min";
-
+.bigBox {
+  background-color: rgba(153, 153, 153, .1);
+}
 .boxs {
   /* height: 100%;
     width: 100%; */

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-
+import Login from '@/views/login' // login
 import Home from '@/views/home' // HOME 切换
 
 import Index from '@/views/index/index' // 主页
@@ -17,6 +17,15 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
+    {
+      path: '/',
+      redirect:'/index'
+    },
+    {
+      path:'/login',
+      name:'login',
+      component:Login
+    },
     {// tabbar 切换
       path:'/home',
       name:'home',
@@ -48,10 +57,6 @@ export default new Router({
           component:Mine
         },
       ]
-    },
-    {
-      path: '/',
-      redirect:'/index'
     },
     {
       path:'/goodsDetail',

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            margin: 50px auto;
+            width: 300px;
+            background: #e8e8e8;
+            padding-top: 50px;
+            box-sizing: border-box;
+        }
+        #name{
+            text-align: center;
+        }
+        #name{
+            color: #0000FF;
+            font-size: 25px;
+        }
+        #box_bottom{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 200px;
+
+        }
+        button{
+            text-align: center;
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p id="name"></p>
+    <div style="text-align: center; margin-top: 50px;">
+      <span>A</span>
+      <span>B</span>
+      <span>C</span>
+      <span>D</span>
+      <span>E</span>
+    </div>
+    <div id="box_bottom">
+        <button id="begin">开始</button>
+        <button id="end">结束</button>
+    </div>
+</div>
+<script>
+    window.onload=function () {
+        //1.定义变量与定时器
+        var timer=null;
+        var nameArr=['A','B','C','D', 'E','A','C','D', 'E'];
+
+        //2.获取当前操作对象
+        var name=document.getElementById('name');
+        var begin=document.getElementById('begin');
+        var end=document.getElementById('end');
+        // var i=0;
+        //3.操作初始化
+        name.innerText=nameArr[0];
+        //4.设置button1定时器
+        begin.onclick=function () {
+            //4.1清除定时器
+            clearInterval(timer);
+            timer=setInterval(function () {
+                //4.2设置随机数，规定随机开始
+                var index=Math.floor(Math.random()*nameArr.length);
+                // console.log(index);
+
+                name.innerHTML=nameArr[index];
+            },1);
+        };
+        //5.设置button2定时器
+        end.onclick=function () {
+            //4.1清除定时器
+            clearInterval(timer);
+        }
+
+    }
+</script>
+</body>
+</html>

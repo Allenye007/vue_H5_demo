@@ -5,13 +5,15 @@ import Login from '@/views/login' // login
 import Home from '@/views/home' // HOME 切换
 
 import Index from '@/views/index/index' // 主页
-import Search from '@/views/index/search' // 主页
+import Search from '@/views/index/search' // 查询
+import GoodsDetail from '../views/index/goods/goodsDetail' // 商品详情
 
 import Cart from '@/views/cart/index' // 购物车
+
 import Shop from '@/views/shop/index' // 商店
+
 import Mine from '@/views/mine/index' // 我的
 
-import GoodsDetail from '../views/index/goods/goodsDetail'
 
 Vue.use(Router);
 

@@ -296,6 +296,7 @@ header {
 <script>
 import Swiper from "swiper";
 import {getGoods1List} from '../../api/api';
+import { Indicator } from 'mint-ui';
 export default {
   data() {
     return {
@@ -317,12 +318,20 @@ export default {
     },
     // 跳转详情
     goGoodsDetail(list) {
-      console.log(list)
+
+      this.$router.push({
+        name: 'goodsDetail',
+        query: list.gid
+      })
     },
     async handelGetGoodsList() {
+
       const {data} =  await getGoods1List();
       // console.log(data.msg);
       this.RXlist = data.msg.rows;
+      if(data.msg.rows) {
+        // Indicator.close();
+      }
     },
     // 轮播图
     lunBo() {

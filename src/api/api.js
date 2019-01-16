@@ -11,7 +11,8 @@ export const getGoods1List = (params) => {return axios.get('/goods1/list', { par
 export const getSearchByDescribe = (params) => {return axios.get('/goods1/search', { params: params })};
 
 
-export const getGoodsDescribe = (params) => {return axios.get('/lianJia/detail', { params: params })};
+export const getGoodsDescribe = (params) => {return axios.get('/detail/detail1', { params: params })};
+export const getInfo = (params) => {return axios.get('/zxOrder/info', { params: params })};
 
 //export const requestLogin = (params) => { return axios.post(`/login/in`, params)};
 

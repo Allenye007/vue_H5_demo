@@ -16,6 +16,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+import Mint from 'mint-ui';
+Vue.use(Mint);
+
 // 注册组件
 // 底部栏
 Vue.component(tabBar.name, tabBar);
